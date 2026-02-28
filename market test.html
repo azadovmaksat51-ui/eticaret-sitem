@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Market</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#141e30,#243b55);
+    color:white;
+    text-align:center;
+}
+
+h1{
+    padding:20px;
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:30px;
+    padding:20px;
+}
+
+.card{
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(10px);
+    width:220px;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.4);
+    transition:0.3s;
+    transform-style:preserve-3d;
+}
+
+.card:hover{
+    transform:rotateY(10deg) rotateX(10deg) scale(1.05);
+}
+
+.card img{
+    width:100%;
+    border-radius:15px;
+}
+
+.price{
+    font-size:18px;
+    margin:10px 0;
+}
+
+button{
+    padding:10px 15px;
+    border:none;
+    border-radius:25px;
+    background:#ff4b2b;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#ff416c;
+}
+
+.cart{
+    margin-top:20px;
+    padding:20px;
+    background:rgba(0,0,0,0.3);
+}
+</style>
+</head>
+
+<body>
+
+<h1>🛒 3D Market</h1>
+
+<div class="container">
+
+    <div class="card">
+        <img src="https://via.placeholder.com/200x150" alt="">
+        <h3>Elma</h3>
+        <div class="price">20 TL</div>
+        <button onclick="addToCart(20)">Sepete Ekle</button>
+    </div>
+
+    <div class="card">
+        <img src="https://via.placeholder.com/200x150" alt="">
+        <h3>Süt</h3>
+        <div class="price">30 TL</div>
+        <button onclick="addToCart(30)">Sepete Ekle</button>
+    </div>
+
+    <div class="card">
+        <img src="https://via.placeholder.com/200x150" alt="">
+        <h3>Ekmek</h3>
+        <div class="price">10 TL</div>
+        <button onclick="addToCart(10)">Sepete Ekle</button>
+    </div>
+
+</div>
+
+<div class="cart">
+    <h2>Sepet Toplamı: <span id="total">0</span> TL</h2>
+</div>
+
+<script>
+let total = 0;
+
+function addToCart(price){
+    total += price;
+    document.getElementById("total").innerText = total;
+}
+</script>
+
+</body>
+</html>
